@@ -5,37 +5,45 @@
 #include <ctype.h>
 #include <map>
 
-void Day01::run(){
+void Day01::run()
+{
 	int sum = 0;
 	std::ifstream infile("./challenges/input.txt");
 	std::string line;
-	if (infile.is_open()){
+	if (infile.is_open())
+	{
 		std::cout << "reading file\n";
 
-		while(std::getline(infile, line)){
+		while (std::getline(infile, line))
+		{
 
 			int lineNumber = getNumber(line);
 			sum += lineNumber;
 		}
 	}
-	else{
+	else
+	{
 		std::cout << "could not open file\n";
 	}
 	std::cout << "Sum: " << sum << "\n";
 }
 
-
-int Day01::getNumber(std::string &line){
+int Day01::getNumber(std::string &line)
+{
 	int firstNum, lastNum = 0;
 	bool firstNumFound = false;
 	replaceWords(line);
-	for (char &ch : line){
-		if (std::isdigit(ch)){
-			if (!firstNumFound){
+	for (char &ch : line)
+	{
+		if (std::isdigit(ch))
+		{
+			if (!firstNumFound)
+			{
 				lastNum = firstNum = ch - '0';
 				firstNumFound = true;
 			}
-			else{
+			else
+			{
 				lastNum = ch - '0';
 			}
 		}
@@ -43,10 +51,11 @@ int Day01::getNumber(std::string &line){
 	return (firstNum * 10 + lastNum);
 }
 
-void Day01::replaceWords(std::string &line){
+void Day01::replaceWords(std::string &line)
+{
 	std::map<std::string, int> wordToInt;
 
-    wordToInt["one"] = 1;
+	wordToInt["one"] = 1;
 	wordToInt["two"] = 2;
 	wordToInt["three"] = 3;
 	wordToInt["four"] = 4;
@@ -56,18 +65,20 @@ void Day01::replaceWords(std::string &line){
 	wordToInt["eight"] = 8;
 	wordToInt["nine"] = 9;
 
-	for (auto const& [key, val] : wordToInt){
+	for (auto const &[key, val] : wordToInt)
+	{
 		replaceAll(line, key, val);
 	}
 }
 
-void Day01::replaceAll(std::string &line, std::string wordToFind, int numToReplaceAs){
+void Day01::replaceAll(std::string &line, std::string wordToFind, int numToReplaceAs)
+{
 	std::size_t pos = 0;
-    while ((pos = line.find(wordToFind, pos)) != std::string::npos)
-    {
+	while ((pos = line.find(wordToFind, pos)) != std::string::npos)
+	{
 		std::string replacement = wordToFind + std::to_string(numToReplaceAs) + wordToFind;
-        line.erase(pos, wordToFind.length());
-        line.insert(pos, replacement);
-        pos += (wordToFind.length() + 2);
-    }
+		line.erase(pos, wordToFind.length());
+		line.insert(pos, replacement);
+		pos += (wordToFind.length() + 2);
+	}
 }
