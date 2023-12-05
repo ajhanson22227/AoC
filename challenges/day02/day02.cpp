@@ -14,14 +14,15 @@ struct Cube{
 
 void Day02::run()
 {
-
 	std::ifstream infile("./challenges/day02/input.txt");
 	partOne(infile);
-
+	infile.clear();
+	infile.seekg(0, std::ios::beg);
 	partTwo(infile);
 }
 
 void Day02::partOne(std::ifstream &infile){
+	std::cout << "\nRunning Day 2 - Part 1\n";
 	std::string line;
 
 	Cube bag;
@@ -74,6 +75,7 @@ void Day02::partOne(std::ifstream &infile){
 }
 
 void Day02::partTwo(std::ifstream &infile){
+	std::cout << "\nRunning Day 2 - Part 2\n";
 	std::string line;
 
 	if (infile.is_open())

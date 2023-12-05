@@ -1,4 +1,4 @@
-#include "../include/day01.h"
+#include "../../include/day01.h"
 #include <sstream>
 #include <fstream>
 #include <iostream>
@@ -7,8 +7,9 @@
 
 void Day01::run()
 {
+	std::cout << "\nRunning Day 1\n";
 	int sum = 0;
-	std::ifstream infile("./challenges/input.txt");
+	std::ifstream infile("./challenges/day01/input.txt");
 	std::string line;
 	if (infile.is_open())
 	{
