@@ -7,6 +7,7 @@ int main(){
 	Day02 day02;
 	Day03 day03;
 	Day04 day04;
+	Day05 day05;
 
 	Stopwatch stopwatch;
 	stopwatch.start();
@@ -34,5 +35,11 @@ int main(){
 	day04.run();
 	stopwatch.stop();
 	std::cout << "Day 04 Total Time: " << stopwatch.getElapsedTime() << "ms\n\n";
+
+	stopwatch.reset();
+	stopwatch.start();
+	day05.run();
+	stopwatch.stop();
+	std::cout << "Day 05 Total Time: " << stopwatch.getElapsedTime() << "ms\n\n";
 	return 0;
 }
