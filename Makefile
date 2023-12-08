@@ -1,7 +1,7 @@
-DAYS = compiles/day01.exe compiles/day02.exe compiles/day03.exe compiles/day04.exe compiles/day05.exe compiles/day06.exe
+DAYS = compiles/day01.exe compiles/day02.exe compiles/day03.exe compiles/day04.exe compiles/day05.exe compiles/day06.exe compiles/day07.exe
 SW = lib/Stopwatch.cpp
 
-aoc: day06
+aoc: day07
 	g++ main.cpp -o aoc $(SW) $(DAYS)
 
 day01:
@@ -21,6 +21,9 @@ day05: day04
 
 day06: day05
 	g++ -c challenges/day06/day06.cpp -o compiles/day06.exe
+
+day07: day06
+	g++ -c challenges/day07/day07.cpp -o compiles/day07.exe
 
 clean:
 	rm *.exe compiles/*.exe
